@@ -32,7 +32,7 @@ spec:
               - key: node-role.kubernetes.io/worker
                 operator: Exists
       containers:
-      - image: cube8021/default-backend-apache-forensic-logging:v0.5
+      - image: cube8021/default-backend-apache-forensic-logging:v0.13
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3

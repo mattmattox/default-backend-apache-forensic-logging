@@ -13,6 +13,7 @@ openssl \
 locales \
 wget \
 curl \
+nano \
 && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN a2enmod rewrite expires
@@ -24,8 +25,7 @@ COPY apache.conf /etc/apache2/sites-available/
 RUN a2dissite 000-default
 RUN a2ensite apache.conf
 RUN ln -sf /proc/self/fd/1 /var/log/apache2/access.log && \
-    ln -sf /proc/self/fd/1 /var/log/apache2/error.log && \
-    ln -sf /proc/self/fd/1 /var/log/apache2/forensic.log
+    ln -sf /proc/self/fd/1 /var/log/apache2/error.log
 
 COPY ports.conf /etc/apache2/
 RUN a2enmod log_forensic
